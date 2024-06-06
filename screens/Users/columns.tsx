@@ -81,21 +81,36 @@ export const usersColumns: ColumnDef<IUser>[] = [
   {
     accessorKey: 'avatar_url',
     header: 'Аватар',
-    cell: ({ row }) => (
-      <div>
-        <Image
-          src={row.getValue('avatar_url')}
-          alt=""
-          width={60}
-          height={60}
-          className="rounded-[8px]"
-        />
-      </div>
-    ),
+    cell: ({ row }) => {
+      const isNoAvatar = row.getValue('avatar_url') === '';
+      return (
+        <div>
+          {isNoAvatar ? (
+            <div className="w-[60px] h-[60px] flex justify-center items-center">
+              <Image
+                src={require('@/public/icons/avatar-placeholder.svg')}
+                alt=""
+                width={45}
+                height={45}
+                className="rounded-[0px]"
+              />
+            </div>
+          ) : (
+            <Image
+              src={row.getValue('avatar_url')}
+              alt=""
+              width={60}
+              height={60}
+              className="rounded-[8px]"
+            />
+          )}
+        </div>
+      );
+    },
   },
   {
     accessorKey: 'user_id',
-    header: 'ID',
+    header: 'ID пользователя',
     cell: ({ row }) => <div>{row.getValue('user_id')}</div>,
   },
   {

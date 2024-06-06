@@ -33,8 +33,8 @@ const CallRequestsScreen = () => {
   return (
     <div className="w-full px-4">
       <ScreenHeader
-        title="Пользователи"
-        description="Просматривайте и модерируйте профили пользователей"
+        title="Запросы на звонок"
+        description="Просматривайте и модерируйте список запросов на звонок от пользователей"
       />
       <div className="w-full px-8 pt-4">
         <DataTable

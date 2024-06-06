@@ -65,9 +65,9 @@ export const betsColumns: ColumnDef<IBet>[] = [
     cell: ({ row }) => <div>{getBetStatus(row.getValue('isBetWon'))}</div>,
   },
   {
-    accessorKey: 'id',
-    header: 'ID',
-    cell: ({ row }) => <div>{row.getValue('id')}</div>,
+    accessorKey: 'document_id',
+    header: 'ID ставки',
+    cell: ({ row }) => <div>{row.getValue('document_id')}</div>,
   },
   {
     accessorKey: 'bet_target_name',
@@ -108,10 +108,13 @@ export const betsColumns: ColumnDef<IBet>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="flex flex-col gap-y-1">
             <CopyButton
-              title="Копировать ID матча"
+              title="Скопировать ID матча"
               copyValue={String(bet.match_id)}
             />
-            <CopyButton title="Копировать ID ставки" copyValue={bet.id} />
+            <CopyButton
+              title="Скопировать ID ставки"
+              copyValue={String(bet.document_id)}
+            />
           </DropdownMenuContent>
         </DropdownMenu>
       );

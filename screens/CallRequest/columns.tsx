@@ -45,49 +45,37 @@ export const callRequestsColumns: ColumnDef<ICallRequest>[] = [
   {
     accessorKey: 'isDone',
     header: 'Статус',
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue('isDone')}</div>
-    ),
+    cell: ({ row }) => <div>{row.getValue('isDone')}</div>,
   },
   {
     accessorKey: 'isAuthUser',
     header: 'Отправитель',
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue('isAuthUser')}</div>
-    ),
+    cell: ({ row }) => <div>{row.getValue('isAuthUser')}</div>,
   },
   {
     accessorKey: 'id',
     header: 'ID',
-    cell: ({ row }) => <div className="capitalize">{row.getValue('id')}</div>,
+    cell: ({ row }) => <div>{row.getValue('id')}</div>,
   },
   {
     accessorKey: 'dateOfRequest',
     header: 'Дата запроса',
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue('dateOfRequest')}</div>
-    ),
+    cell: ({ row }) => <div>{row.getValue('dateOfRequest')}</div>,
   },
   {
     accessorKey: 'userName',
     header: 'Имя пользователя',
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue('userName')}</div>
-    ),
+    cell: ({ row }) => <div>{row.getValue('userName')}</div>,
   },
   {
     accessorKey: 'userPhone',
     header: 'Телефон пользователя',
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue('userPhone')}</div>
-    ),
+    cell: ({ row }) => <div>{row.getValue('userPhone')}</div>,
   },
   {
     accessorKey: 'userQuestion',
     header: 'Вопрос',
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue('userQuestion')}</div>
-    ),
+    cell: ({ row }) => <div>{row.getValue('userQuestion')}</div>,
   },
   {
     id: 'actions',

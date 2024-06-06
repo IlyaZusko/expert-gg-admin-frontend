@@ -6,5 +6,5 @@ export interface IBet {
   isBetWon: boolean | null;
   match_id: number;
   user_id: string;
-  id: string;
+  document_id: string;
 }

@@ -15,31 +15,31 @@ const DashboardScreen = () => {
 
   const leaderBoardData = [
     {
-      value: listUsers.length || ' ',
+      value: listUsers.length || '0',
       title: 'Пользователи',
       description: 'Общее количество пользователей',
       icon: <User2 width={40} height={40} color="#FEA800" />,
     },
     {
-      value: listBets.length || ' ',
+      value: listBets.length || '0',
       title: 'Ставки',
       description: 'Общее количество ставок',
       icon: <Swords width={40} height={40} color="#CECECE" />,
     },
     {
-      value: listBets.filter((bet) => bet.isBetWon).length || ' ',
+      value: listBets.filter((bet) => bet.isBetWon).length || '0',
       title: 'Выигранные ставки',
       description: 'Количество выигранных ставок',
       icon: <Trophy width={40} height={40} color="#FEA800" />,
     },
     {
-      value: totalCoinsWon || ' ',
+      value: totalCoinsWon || '0',
       title: 'Общий выигрыш',
       description: 'Общий выигрыш пользователей',
       icon: <Coins width={40} height={40} color="#12CC46" />,
     },
     {
-      value: `-${totalCoinsLost}` || ' ',
+      value: totalCoinsLost ? `-${totalCoinsLost}` : '0',
       title: 'Общий проигрыш',
       description: 'Общий проигрыш пользователей',
       icon: <Ghost width={40} height={40} color="#FE0000" />,

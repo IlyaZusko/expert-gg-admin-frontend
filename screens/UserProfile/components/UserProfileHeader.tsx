@@ -53,13 +53,32 @@ const UserProfileHeader = ({ userProfile }: IUserProfileHeader) => {
   return (
     <div className="w-full flex flex-row items-center justify-between pt-2 pb-3 px-8 border-b border-custom-cover">
       <div className="flex flex-row gap-x-4 items-center">
-        <Image
+        {/* <Image
           src={userProfile.avatar_url}
           alt=""
           width={100}
           height={100}
           className="rounded-[8px]"
-        />
+        /> */}
+        {userProfile.avatar_url === '' ? (
+          <div className="w-[100px] h-[100px] flex justify-center items-center">
+            <Image
+              src={require('@/public/icons/avatar-placeholder.svg')}
+              alt=""
+              width={80}
+              height={80}
+              className="rounded-[0px]"
+            />
+          </div>
+        ) : (
+          <Image
+            src={userProfile.avatar_url}
+            alt=""
+            width={100}
+            height={100}
+            className="rounded-[8px]"
+          />
+        )}
         <div>
           <p className="text-lg font-semibold">{userProfile.username}</p>
           <p className="text-xs font-medium text-gray-400 pt-1">

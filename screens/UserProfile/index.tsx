@@ -16,9 +16,7 @@ const UserProfileScreen = () => {
   const currentUserProfile =
     listUsers.find((user) => user.user_id === userId) || null;
 
-  const listUserBets = listBets.filter(
-    (bet) => bet.user_id === currentUserProfile?.user_id,
-  );
+  const listUserBets = listBets.filter((bet) => bet.user_id === userId);
 
   return currentUserProfile ? (
     <div className="w-full px-4">

@@ -19,7 +19,11 @@ export const betsSlice = createSlice({
   initialState,
   reducers: {
     setListBets: (state, action: PayloadAction<IBet>) => {
-      if (!state.listBets.find((product) => product.id === action.payload.id)) {
+      if (
+        !state.listBets.find(
+          (product) => product.document_id === action.payload.document_id,
+        )
+      ) {
         state.listBets = [...state.listBets, action.payload];
       }
     },

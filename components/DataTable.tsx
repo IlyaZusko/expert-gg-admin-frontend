@@ -17,6 +17,13 @@ import * as React from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {
   Table,
   TableBody,
   TableCell,
@@ -84,6 +91,34 @@ export function DataTable<TData, TValue>({
             className="h-8 rounded-[4px] px-2 text-xs font-medium w-[200px] mb-4"
             label="Поиск"
           />
+        )}
+        {isForCallRequests && (
+          <div className="flex flex-col">
+            <p className="text-xs text-white pb-[2px]">Фильтр</p>
+            <Select
+              defaultValue="nofilter"
+              onValueChange={(v) => {
+                if (v === 'active') {
+                  table.getColumn('isDone')?.setFilterValue(true);
+                }
+                if (v === 'unactive') {
+                  table.getColumn('isDone')?.setFilterValue(false);
+                }
+                if (v === 'nofilter') {
+                  table.getColumn('isDone')?.setFilterValue('');
+                }
+              }}
+            >
+              <SelectTrigger className="w-[200px] border border-gray-700 mb-4 text-xs">
+                <SelectValue className="text-xs font-medium" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="nofilter">Все статусы</SelectItem>
+                <SelectItem value="active">Обслужен</SelectItem>
+                <SelectItem value="unactive">Не обслужен</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         )}
       </div>
       <div className="rounded-[8px] border border-gray-800">
@@ -153,7 +188,7 @@ export function DataTable<TData, TValue>({
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No results.
+                  Нет результатов
                 </TableCell>
               </TableRow>
             )}

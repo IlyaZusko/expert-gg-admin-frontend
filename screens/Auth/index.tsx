@@ -15,10 +15,8 @@ interface ISignIn {
 }
 
 const initialValues: ISignIn = {
-  username: 'gen_admin',
-  password: 'GenAdmin',
-  // username: '',
-  // password: '',
+  username: '',
+  password: '',
 };
 
 const AuthScreen = () => {
